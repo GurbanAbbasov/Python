@@ -3,4 +3,4 @@ This is to demonstrate my understanding of basic Python and Statistics, and show
 
 # README
 
-# Please noe that .html file is not a code/script. It is rather a file (data visualisation output via matplolib). So, please do not open it as a raw script or try to run it. Rather, download both .csv file and .html file together to have an offline view of my project.
+# Please noe that .html file is not a code/script. It is rather a file (data visualisation output via matplolib). So, please do not open it as a raw script or try to run it. Rather, download both .csv file and .html file together to have an offline view of my project. You can download it as a ZIP directly.
