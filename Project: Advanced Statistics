@@ -1,0 +1,62 @@
+# Pandas & data origination
+import pandas as pd
+
+# Load data
+df = pd.read_csv('page_visits.csv')
+
+# Display data
+print(df.head())
+
+# Display survey results
+print(
+  df.groupby('website_goal')\
+    .first_name.count()\
+    .reset_index()\
+    .rename(columns={'first_name': 'number_of_citizens'})
+)
+
+
+# Matplotlib – visualising data
+
+from matplotlib import pyplot as plt
+
+# Calculate survey results
+survey_results = df.groupby('website_goal')\
+    .first_name.count()
+  
+# Make a pie chart
+plt.pie(survey_results.values,
+        labels=survey_results.index,
+        autopct='%d%%'
+       )
+plt.title('Why do citizens visit our website?')
+plt.axis('equal')
+
+plt.show()
+
+# Hypothesis testing
+
+# Load modules
+from scipy.stats import chi2_contingency
+
+# Record Data from Google
+control_group = 7700
+variant_group = 7700
+control_success = 231
+variant_success = 308
+control_fail = control_group - control_success
+variant_fail = variant_group - variant_success
+
+# Perform Chi2 Test
+results = chi2_contingency([
+  [control_fail, control_success],
+  [variant_fail, variant_success]
+])
+
+p = results[1]
+
+if p < 0.05:
+    print("Significant!")
+if p > 0.05:
+    print("Not significant!")
+    
